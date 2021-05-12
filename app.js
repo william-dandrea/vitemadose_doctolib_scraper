@@ -2,6 +2,16 @@ const puppeteer = require('puppeteer');
 const Discord = require("discord.js");
 const configDiscord = require("./discordconfig.json");
 
+const discordClient = new Discord.Client();
+discordClient.login(configDiscord.BOT_TOKEN);
+
+const getBotCovidChannel = async () => {
+    const channel = await discordClient.channels.cache.get("842119302349455391");
+    return channel;
+}
+
+//const botCovidChannel=await getBotCovidChannel();
+
 /**
  * @author D'Andréa William
  */
@@ -32,7 +42,7 @@ function actionWhenAppointment(link) {
 /**
  * Fonction qui va check si il y a un rdv de libre
  */
-function verify() {
+async function verify() {
 
     puppeteer.launch({headless:true}).then(async browser => {
 
@@ -64,21 +74,17 @@ function verify() {
  */
 setInterval(verify,watchEverySeconds * 1000);
 
-const client = new Discord.Client();
-
-client.login(configDiscord.BOT_TOKEN);
 
 
-/*client.on("message", function(message) {
-    if(message.author.id === client.user.id) {
+/*
+
+.on("message", function(message) {
+    if(message.author.id === discordClient.user.id) {
         return;
     }
-    console.log(message);
-    console.log(message.channel)
-    message.channel.send("hello");
-});*/
+    console.log(message.content);
+    console.log(message.channel.id)
+    console.log(message.channel.name)
 
-const channel = client.channels.cache.find(channel => channel.name === "842119302349455391");
-console.log(client.channels)
-console.log(channel)
-channel.send("Hello world");
+});
+*/
