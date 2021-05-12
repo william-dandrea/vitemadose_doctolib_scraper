@@ -1,0 +1,48 @@
+{
+  "elements": [
+    {
+      "url_api": "https://www.doctolib.fr/booking/cpts-des-collines-vaccination-covid",
+      "url_destination": "https://www.doctolib.fr/centre-de-sante/le-rouret/cpts-des-collines-vaccination-covid?highlight%5Bspeciality_ids%5D%5B%5D=5494&pid=practice-163940"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/centre-de-vaccination-du-palais-des-congres-de-grasse",
+      "url_destination": "https://www.doctolib.fr/centre-de-vaccinations-internationales/grasse/centre-de-vaccination-du-palais-des-congres-de-grasse?highlight%5Bspeciality_ids%5D%5B%5D=5494"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/centre-de-vaccination-covid-19-centre-des-congres-mandelieu-la-napoule",
+      "url_destination": "https://www.doctolib.fr/centre-de-sante/mandelieu-la-napoule/centre-de-vaccination-covid-19-centre-des-congres-mandelieu-la-napoule?highlight%5Bspeciality_ids%5D%5B%5D=5494"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/covid-19-vence",
+      "url_destination": "https://www.doctolib.fr/centre-de-vaccinations-internationales/nice/covid-19-vence?highlight%5Bspeciality_ids%5D%5B%5D=5494"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/centre-de-vaccination-covid-hancy-reserve-aux-professionnels-de-sante",
+      "url_destination": "https://www.doctolib.fr/centre-de-sante/nice/centre-de-vaccination-covid-hancy-reserve-aux-professionnels-de-sante?highlight%5Bspeciality_ids%5D%5B%5D=5494&pid=practice-180666"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/covid-19-saint-vallier-de-thiey",
+      "url_destination": "https://www.doctolib.fr/centre-de-vaccinations-internationales/nice/covid-19-saint-vallier-de-thiey?highlight%5Bspeciality_ids%5D%5B%5D=5494"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/centre-de-vaccination-covid-hancy-reserve-aux-professionnels-de-sante",
+      "url_destination": "https://www.doctolib.fr/centre-de-sante/nice/centre-de-vaccination-covid-hancy-reserve-aux-professionnels-de-sante?highlight%5Bspeciality_ids%5D%5B%5D=5494&pid=practice-183965"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/centre-de-vaccination-covid-hancy-reserve-aux-professionnels-de-sante",
+      "url_destination": "https://www.doctolib.fr/centre-de-sante/nice/centre-de-vaccination-covid-hancy-reserve-aux-professionnels-de-sante?highlight%5Bspeciality_ids%5D%5B%5D=5494"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/centre-de-vaccination-covid-hancy-reserve-aux-professionnels-de-sante",
+      "url_destination": "https://www.doctolib.fr/centre-de-sante/nice/centre-de-vaccination-covid-hancy-reserve-aux-professionnels-de-sante?highlight%5Bspeciality_ids%5D%5B%5D=5494&pid=practice-175132"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/centre-de-vaccination-covid-19-du-var",
+      "url_destination": "https://www.doctolib.fr/centre-de-vaccinations-internationales/toulon/centre-de-vaccination-covid-19-du-var?highlight%5Bspeciality_ids%5D%5B%5D=5494&pid=practice-173156"
+    },
+    {
+      "url_api": "https://www.doctolib.fr/booking/centre-hospitalier-intercommunal-de-frejus-saint-raphael-vaccination-covid-19",
+      "url_destination": "https://www.doctolib.fr/hopital-public/frejus/centre-hospitalier-intercommunal-de-frejus-saint-raphael-vaccination-covid-19?highlight%5Bspeciality_ids%5D%5B%5D=5494"
+    }
+  ]
+}

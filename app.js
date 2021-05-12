@@ -1,12 +1,13 @@
 const puppeteer = require('puppeteer');
 const Discord = require("discord.js");
 const configDiscord = require("./discordconfig.json");
+const centreVaccinationNice = require("./centre-de-vaccination-06.json");
 const https = require('https');
 const discordClient = new Discord.Client();
 discordClient.login(configDiscord.BOT_TOKEN);
 
-let urlDestination = "https://www.doctolib.fr/centre-de-sante/mougins-mouans-sartoux/centre-de-vaccination-covid-19-mougins-mouans-sartoux?highlight%5Bspeciality_ids%5D%5B%5D=5494"
-let url = "https://www.doctolib.fr/booking/centre-de-vaccination-covid-castellane";
+// let urlDestination = "https://www.doctolib.fr/centre-de-sante/mougins-mouans-sartoux/centre-de-vaccination-covid-19-mougins-mouans-sartoux?highlight%5Bspeciality_ids%5D%5B%5D=5494"
+// let url = "https://www.doctolib.fr/booking/centre-de-vaccination-covid-castellane";
 // let url = "https://www.doctolib.fr/booking/centre-de-vaccination-covid-19-mougins-mouans-sartoux";
 
 
@@ -19,15 +20,15 @@ const getBotCovidChannel = async () => {
     }
 }
 //const botCovidChannel=await getBotCovidChannel();
-function launchedWhenAvailableAppointment(urlIntern) {
-    botCovidChannel.send("Nouveau creneau dispo !");
+function launchedWhenAvailableAppointment(urlIntern, urlDestination) {
+    botCovidChannel.send("Nouveau creneau disponible ! à : " + urlDestination);
     console.log(urlDestination);
 }
-function launchedWhenUnavailableAppointment(urlIntern) {
+function launchedWhenUnavailableAppointment(urlIntern, urlDestination) {
     //botCovidChannel.send("Pas de creneau dispo a cette url : " + urlDestination)
     console.log("Pas de creneau dispo");
 }
-function determineIfweHaveDisponibilities(urls) {
+function determineIfweHaveDisponibilities(urls, urlDestination) {
     for (let i = 0; i < urls.length; i++) {
         https.get(urls[i],(res) => {
             let body = "";
@@ -38,9 +39,10 @@ function determineIfweHaveDisponibilities(urls) {
                 try {
                     let json = JSON.parse(body);
                     if (json.availabilities.length !== 0) {
-                        launchedWhenAvailableAppointment(urls[i]);
+
+                        launchedWhenAvailableAppointment(urls[i], urlDestination);
                     } else {
-                        launchedWhenUnavailableAppointment(urls[i]);
+                        launchedWhenUnavailableAppointment(urls[i], urlDestination);
                     }
                 } catch (error) {
                     console.error(error.message);
@@ -54,7 +56,7 @@ function determineIfweHaveDisponibilities(urls) {
 
 
 
-async function launch() {
+async function launch(url, urlDestination) {
     await getBotCovidChannel();
     https.get(url,(res) => {
         let body = "";
@@ -87,7 +89,7 @@ async function launch() {
                     urls.push(firstUrl)
                 }
                 console.log(urls);
-                determineIfweHaveDisponibilities(urls);
+                determineIfweHaveDisponibilities(urls, urlDestination);
             } catch (error) {
                 console.error(error.message);
             };
@@ -97,7 +99,14 @@ async function launch() {
     });
 }
 
-setInterval(launch,2500);
+
+
+setInterval(() => {
+
+    centreVaccinationNice.elements.forEach(centre => {
+        launch(centre.url_api, centre.url_destination);
+    })
+},2500);
 
 
 // https://www.doctolib.fr/availabilities.json?
