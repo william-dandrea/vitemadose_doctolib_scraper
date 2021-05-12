@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+const Discord = require("discord.js");
+const configDiscord = require("./discordconfig.json");
 
 /**
  * @author D'Andréa William
@@ -41,7 +43,7 @@ function verify() {
             await page.goto(link);
             await page.click('#didomi-notice-agree-button');
 
-            await page.waitForXPath('//*[contains(text(), "Aucun rendez-vous n\'est disponible pour le moment")]', { timeout: 1000 })
+            await page.waitForXPath('//*[contains(text(), "Aucune disponibilit")]', { timeout: 1000 })
                 .then(() => {
                     console.log('Pas de rdv de disponible');
                 })
@@ -62,7 +64,19 @@ function verify() {
  */
 setInterval(verify,watchEverySeconds * 1000);
 
+const client = new Discord.Client();
+
+client.login(configDiscord.BOT_TOKEN);
 
 
+client.on("message", function(message) {
+    if(message.author.id === client.user.id) {
+        return;
+    }
+    console.log(message);
+    message.channel.send("hello");
+});
 
-
+/*const channel = client.channels.cache.find(channel => channel.name === "bot-covid");
+console.log(channel)
+channel.send("Hello world");*/
