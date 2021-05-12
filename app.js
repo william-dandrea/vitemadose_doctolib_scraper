@@ -5,7 +5,7 @@ const https = require('https');
 const discordClient = new Discord.Client();
 discordClient.login(configDiscord.BOT_TOKEN);
 
-var botCovidChannel=null;
+let botCovidChannel = null;
 
 const getBotCovidChannel = async () => {
     if (botCovidChannel === null) {
@@ -13,14 +13,15 @@ const getBotCovidChannel = async () => {
     }
 }
 //const botCovidChannel=await getBotCovidChannel();
-function launchedWhenAvailableAppointment(url) {
-    console.log(url);
+function launchedWhenAvailableAppointment(urlIntern) {
+    botCovidChannel.send("Nouveau creneau dispo !");
+    console.log(urlDestination);
 }
 function launchedWhenUnavailableAppointment(url) {
     botCovidChannel.send("Pas de creneau dispo")
     console.log("Pas de creneau dispo");
 }
-async function determineIfweHaveDisponibilities(urls) {
+function determineIfweHaveDisponibilities(urls) {
     for (let i = 0; i < urls.length; i++) {
         https.get(urls[i],(res) => {
             let body = "";
