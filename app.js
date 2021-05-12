@@ -41,7 +41,7 @@ function verify() {
             await page.goto(link);
             await page.click('#didomi-notice-agree-button');
 
-            await page.waitForXPath('//*[contains(text(), "Aucun")]', { timeout: 1000 })
+            await page.waitForXPath('//*[contains(text(), "Aucun rendez-vous n\'est disponible pour le moment")]', { timeout: 1000 })
                 .then(() => {
                     console.log('Pas de rdv de disponible');
                 })
