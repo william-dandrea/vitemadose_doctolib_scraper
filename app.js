@@ -69,14 +69,16 @@ const client = new Discord.Client();
 client.login(configDiscord.BOT_TOKEN);
 
 
-client.on("message", function(message) {
+/*client.on("message", function(message) {
     if(message.author.id === client.user.id) {
         return;
     }
     console.log(message);
+    console.log(message.channel)
     message.channel.send("hello");
-});
+});*/
 
-/*const channel = client.channels.cache.find(channel => channel.name === "bot-covid");
+const channel = client.channels.cache.find(channel => channel.name === "842119302349455391");
+console.log(client.channels)
 console.log(channel)
-channel.send("Hello world");*/
+channel.send("Hello world");
