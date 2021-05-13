@@ -1,4 +1,3 @@
-const puppeteer = require('puppeteer');
 const Discord = require("discord.js");
 const configDiscord = require("./discordconfig.json");
 const centreVaccinationNice = require("./centre-de-vaccination-06.json");
@@ -99,14 +98,14 @@ async function launch(url, urlDestination) {
     });
 }
 
+if (process.env.NODE_APP_INSTANCE === '0' || process.env.NODE_APP_INSTANCE === undefined) {
+    setInterval(() => {
 
-
-setInterval(() => {
-
-    centreVaccinationNice.elements.forEach(centre => {
-        launch(centre.url_api, centre.url_destination);
-    })
-},2500);
+        centreVaccinationNice.elements.forEach(centre => {
+            launch(centre.url_api, centre.url_destination);
+        })
+    },2500);
+}
 
 
 // https://www.doctolib.fr/availabilities.json?
