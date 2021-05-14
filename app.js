@@ -87,7 +87,7 @@ if (process.env.NODE_APP_INSTANCE === '0' || process.env.NODE_APP_INSTANCE === u
 
 
 
-    },2500);
+    },5000);
 
 
 }
