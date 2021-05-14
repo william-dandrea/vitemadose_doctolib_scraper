@@ -56,7 +56,6 @@ async function launch(url, urlDestination) {
         res.on("end", () => {
             try {
                 let json = JSON.parse(body);
-
                 if (json.availabilities.length !== 0) {
                     // On a un rdv
                     availableAppointment(json);
@@ -88,14 +87,4 @@ if (process.env.NODE_APP_INSTANCE === '0' || process.env.NODE_APP_INSTANCE === u
         console.log(linksTime);
 
     },5000);
-
-
 }
-
-
-
-
-
-
-
-
