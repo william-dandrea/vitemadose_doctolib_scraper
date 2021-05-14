@@ -22,7 +22,7 @@ function availableAppointment(jsonAppointment) {
 
     if (indexInLinkTime > -1) {
         // Si il est deja dedans
-        if (Date.now() - linksTime[indexInLinkTime][1] > 10000) {
+        if (Date.now() - linksTime[indexInLinkTime][1] > 1200000) {
             linksTime[indexInLinkTime][1] = Date.now();
             botCovidChannel.send("⚠️ Nouveau creneau disponible ! à : " + urlDestination);
         }
@@ -85,7 +85,7 @@ if (process.env.NODE_APP_INSTANCE === '0' || process.env.NODE_APP_INSTANCE === u
         });
 
 
-
+        console.log(linksTime);
 
     },5000);
 
